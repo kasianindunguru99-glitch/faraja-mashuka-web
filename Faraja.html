@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Faraja Collection</title>
+
+<style>
+
+/* RESET */
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+}
+
+body{
+font-family:Arial,sans-serif;
+background:white;
+}
+
+/* DARK MODE */
+.dark{
+background:#111;
+color:white;
+}
+
+.dark .card,
+.dark .contact-box{
+background:#222;
+color:white;
+}
+
+/* NAVBAR */
+nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 30px;
+background:#111;
+flex-wrap:wrap;
+gap: 20px;
+}
+
+nav h1{
+color:orange;
+}
+
+nav ul{
+display:flex;
+list-style:none;
+gap:25px;
+flex-wrap: wrap;
+justify-content: center;
+align-items: center;
+
+}
+
+nav ul li a{
+color:white;
+text-decoration:none;
+font-weight:bold;
+transition:0.3s;
+padding: 10px 15px;
+border-radius: 8px;
+}
+
+nav ul li a:hover{
+color:orange;
+}
+
+.right{
+display:flex;
+gap:10px;
+align-items:center;
+flex-wrap:wrap;
+}
+
+.right input{
+padding:8px 15px;
+border:none;
+border-radius:20px;
+}
+
+.right button{
+padding:8px 12px;
+border:none;
+border-radius:20px;
+cursor:pointer;
+}
+
+/* HERO */
+.hero{
+height:60vh;
+background:url(../Pictures/darw.png) center / cover;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+color:white;
+position:relative;
+}
+
+.hero::before{
+content:"";
+position:absolute;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.5);
+}
+
+.hero-content{
+position:relative;
+z-index:2;
+}
+
+.hero-content h2{
+font-size:40px;
+margin-bottom:10px;
+}
+
+/* PRODUCTS */
+.products{
+padding:30px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+}
+
+.products h2{
+grid-column:1/-1;
+font-size:30px;
+margin-bottom:10px;
+color:#111;
+}
+
+/* CARD */
+.card{
+width: 190px;
+height: 290px;
+background:white;
+padding:12px;
+border-radius:18px;
+box-shadow:0 8px 20px rgba(0,0,0,0.12);
+text-align:center;
+transition:0.4s;
+overflow: hidden;
+cursor: pointer;
+}
+
+.card:hover{
+transform:translateY(-10px) scale(1.03);
+box-shadow: 0 12px 25px rgba(0,0,0,0.18);
+}
+
+.card img{
+width:100%;
+border-radius:12px;
+height:170px;
+object-fit:cover;
+transition: 0.4s;
+}
+
+.card p{
+margin:12px 0;
+font-weight:bold;
+font-size: 18px;
+color: #111;
+}
+
+.card button{
+padding:10px 18px;
+border:none;
+background:linear-gradient(45deg, orange,#ff5e00);
+color:white;
+border-radius:25px;
+cursor:pointer;
+font-weight: bold;
+transition: 0.3s;
+}
+
+.card button:hover{
+  transform: scale(1.08);
+  background: linear-gradient(45deg, #111,#333);
+}
+
+/* CONTACT */
+.contact{
+padding:40px 20px;
+}
+
+.contact-box{
+max-width:600px;
+margin:auto;
+background:white;
+padding:30px;
+border-radius:15px;
+box-shadow:0 5px 15px rgba(0,0,0,0.1);
+text-align:center;
+}
+
+.contact-box h2{
+margin-bottom:15px;
+}
+
+.contact-box p{
+margin:10px 0;
+}
+
+/* FOOTER */
+footer{
+background:#111;
+color:white;
+text-align:center;
+padding:40px;
+margin-top:20px;
+}
+
+.brand-box{
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.brand-box img{
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.brand-box span{
+  color: red;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav>
+
+<h1>Faraja Products Collection</h1>
+
+<ul>
+<li><a href="#mashuka">Mashuka</a></li>
+<li><a href="#pazia">Pazia</a></li>
+<li><a href="#viatu">Viatu</a></li>
+<li><a href="#pochi">Pochi</a></li>
+<li><a href="#vikoi">Vikoi</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+
+<div class="right">
+<input type="text" id="search" placeholder="Search..." onkeyup="searchProduct()">
+<button onclick="darkMode()">🌙</button>
+<h3 style="color:white;">🛒 <span id="cart-count">0</span></h3>
+</div>
+
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+<div class="hero-content">
+<h2>Welcome To Faraja Collection 🔥</h2>
+<img src="c:\Users\KASIAN\Pictures\IMG-20260422-WA0000.jpg" width="250px" height="250px" alt="logo">
+<p>Quality Products For You.</p>
+</div>
+</section>
+
+<!-- MASHUKA -->
+<section class="products" id="mashuka">
+<h2>Mashuka mazuri sana Quality<br><br>shuka mbili na foronya mbili ni 25,000 pia shuka mbili na foronya nne ni 30,00 tzs</h2>
+  <div class="card"><img src="c:\Users\KASIAN\Pictures\IMG-20260420-WA0012.jpg"><p>25,000 TZS</p><button>Add to cart</button></div>
+  <div class="card"><img src="c:\Users\KASIAN\Pictures\IMG-20260420-WA0014.jpg"><p>25,000 TZS</p><button>Add to cart</button></div>
+  <div class="card"><img src="c:\Users\KASIAN\Pictures\Saved Pictures\IMG-20260422-WA0020.jpg"><p>25,000 TZS</p><button>Add to cart</button></div>
+  <div class="card"><img src="c:\Users\KASIAN\Pictures\IMG-20260422-WA0002.jpg"><p>25,000 TZS</p><button>Add to cart</button></div>
+  <div class="card"><img src="c:\Users\KASIAN\Pictures\IMG-20260424-WA0012.jpg"><p>25,000 TZS</p><button>Add to cart</button></div>
+  <div class="card"><img src="c:\Users\KASIAN\Pictures\IMG-20260424-WA0014.jpg"><p>25,00 TZS</p><button>Add to cart</button></div>
+  <div class="card"><img src="c:\Users\KASIAN\Pictures\IMG-20260424-WA0011.jpg"><p>25,000 TZS</p><button>Add to cart</button></div>
+  <div class="card"><img src="c:\Users\KASIAN\Pictures\IMG-20260424-WA0013.jpg"><p>25,000 TZS</p><button>Add to cart</button></div>
+  <div class="card"><img src="c:\Users\KASIAN\Pictures\IMG-20260424-WA0015.jpg"><p>25,000 TZS</p><button>Add to cart</button></div>
+  <div class="card"><img src="c:\Users\KASIAN\Pictures\IMG-20260424-WA0010.jpg"><p>25,000 TZS</p><button>Add to cart</button></div>
+</section>
+
+<!-- PAZIA -->
+<section class="products" id="pazia">
+<h2>Mapazia mazuri <br><br>set yote yanakuwa matatu pamoja na leso hiyo ni 40,000 TZS</h2>
+  <div class="card"><img src="c:\Users\KASIAN\Pictures\IMG-20260420-WA0000.jpg" height="250px"><p>13,000 TZS</p><button>Add to cart</button></div>
+  <div class="card"><img src="c:\Users\KASIAN\Pictures\IMG-20260424-WA0009.jpg"><p>40,000 TZS</p><button>Add to cart</button></div>
+  <div class="card"><img src="c:\Users\KASIAN\Pictures\IMG-20260422-WA0001.jpg"><p>40,000 TZS</p><button>Add to cart</button></div>
+  <div class="card"><img src="c:\Users\KASIAN\Pictures\IMG-20260420-WA0024.jpg"><p>40,000 TZS</p><button>Add to cart</button></div>
+  <div class="card"><img src="c:\Users\KASIAN\Pictures\IMG-20260422-WA0001.jpg"><p>40,000 TZS</p><button>Add to cart</button></div>
+</section>
+
+<!-- VIATU -->
+<section class="products" id="viatu">
+ <h2>Viatu vya kike vizuri sana</h2> 
+  <div class="card"><img src="c:\Users\KASIAN\Pictures\IMG-20260420-WA0011.jpg"><p>9,000 TZS</p><button>Add to cart</button></div>
+  <div class="card"><img src="c:\Users\KASIAN\Pictures\IMG-20260420-WA0010.jpg"><p>9,000 TZS</p><button>Add to cart</button></div>
+  <div class="card"><img src="c:\Users\KASIAN\Pictures\IMG-20260420-WA0008.jpg"><p>9,000 TZS</p><button>Add to cart</button></div>
+  <div class="card"><img src="c:\Users\KASIAN\Pictures\IMG-20260420-WA0009.jpg"><p>30,000 TZS</p><button>Add to cart</button></div>
+  <div class="card"><img src="c:\Users\KASIAN\Pictures\IMG-20260420-WA0002.jpg"><p>9,000 TZS</p><button>Add to cart</button></div>
+  <div class="card"><img src="c:\Users\KASIAN\Pictures\Saved Pictures\IMG-20260422-WA0019.jpg"><p>16,000 TZS</p><button>Add to cart</button></div>
+  <div class="card"><img src="c:\Users\KASIAN\Pictures\Saved Pictures\IMG-20260422-WA0017.jpg"><p>16,000 TZS</p><button>Add to cart</button></div>
+  <div class="card"><img src="c:\Users\KASIAN\Pictures\Saved Pictures\IMG-20260422-WA0013.jpg"><p>16,000 TZS</p><button>Add to cart</button></div>
+  <div class="card"><img src="c:\Users\KASIAN\Pictures\Saved Pictures\IMG-20260422-WA0015.jpg"><p>7,500 TZS</p><button>Add to cart</button></div>
+  <div class="card"><img src="c:\Users\KASIAN\Pictures\Saved Pictures\IMG-20260422-WA0018.jpg"><p>7,500 TZS</p><button>Add to cart</button></div>
+  
+</section>
+
+<!-- POCHI -->
+<section class="products" id="pochi">
+<h2>Pochi</h2>
+ <h2>Pochi nzuri sana kwa wadada</h2>
+  <div class="card"><img src="c:\Users\KASIAN\Pictures\IMG-20260420-WA0006.jpg"><p>32,000 TZS</p><button>Add to cart</button></div>
+  <div class="card"><img src="c:\Users\KASIAN\Pictures\IMG-20260420-WA0007.jpg"><p>32,000 TZS</p><button>Add to cart</button></div>
+  <div class="card"><img src="c:\Users\KASIAN\Pictures\IMG-20260420-WA0003.jpg"><p>25,000 TZS</p><button>Add to cart</button></div>
+  <div class="card"><img src="c:\Users\KASIAN\Pictures\IMG-20260420-WA0005.jpg"><p>25,000 TZS</p><button>Add to cart</button></div>
+  <div class="card"><img src="c:\Users\KASIAN\Pictures\Saved Pictures\IMG-20260422-WA0010.jpg"><p>32,000 TZS</p><button>Add to cart</button></div>
+  <div class="card"><img src="c:\Users\KASIAN\Pictures\Saved Pictures\IMG-20260422-WA0008.jpg"><p>32,000 TZS</p><button>Add to cart</button></div>
+  <div class="card"><img src="c:\Users\KASIAN\Pictures\Saved Pictures\IMG-20260422-WA0012.jpg"><p>25,000 TZS</p><button>Add to cart</button></div>
+  <div class="card"><img src="c:\Users\KASIAN\Pictures\Saved Pictures\IMG-20260422-WA0016.jpg"><p>25,000 TZS</p><button>Add to cart</button></div>
+  <div class="card"><img src="c:\Users\KASIAN\Pictures\Saved Pictures\IMG-20260422-WA0010.jpg"><p>32,000 TZS</p><button>Add to cart</button></div>
+  <div class="card"><img src="c:\Users\KASIAN\Pictures\Saved Pictures\IMG-20260422-WA0009.jpg"><p>32,00 TZS</p><button>Add to cart</button></div>
+</section>
+</section>
+
+<!-- VIKOI -->
+<section class="products" id="vikoi">
+<h2>Vikoi</h2>
+ <h2>vikoi vizuri na bei nafuu</h2>
+  <div class="card"><img src="c:\Users\KASIAN\Pictures\Saved Pictures\IMG-20260422-WA0011.jpg"><p>18,000 TZS</p><button>Add to cart</button></div>
+  <div class="card"><img src="c:\Users\KASIAN\Pictures\Saved Pictures\IMG-20260422-WA0014.jpg"><p>18,000TZS</p><button>Add to cart</button></div>
+  <div class="card"><img src="c:\Users\KASIAN\Pictures\IMG-20260424-WA0006.jpg"><p>18,000TZS</p><button>Add to cart</button></div>
+  <div class="card"><img src="c:\Users\KASIAN\Pictures\IMG-20260424-WA0005.jpg"><p>18,000TZS</p><button>Add to cart</button></div>
+  <div class="card"><img src="c:\Users\KASIAN\Pictures\IMG-20260424-WA0003.jpg"><p>18,000TZS</p><button>Add to cart</button></div>
+  <div class="card"><img src="c:\Users\KASIAN\Pictures\IMG-20260424-WA0002.jpg"><p>18,000TZS</p><button>Add to cart</button></div>
+  <div class="card"><img src="c:\Users\KASIAN\Pictures\IMG-20260424-WA0004.jpg"><p>18,000 TZS</p><button>Add to cart</button></div>
+  <div class="card"><img src="c:\Users\KASIAN\Pictures\IMG-20260424-WA0007.jpg"><p>18,000 TZS</p><button>Add to cart</button></div>
+  <div class="card"><img src="c:\Users\KASIAN\Pictures\IMG-20260424-WA0008.jpg"><p>18,000 TZS</p><button>Add to cart</button></div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+<div class="contact-box">
+<h2>Contact Us</h2>
+<p>📞 +255 796233870</p>
+<p>💬 WhatsApp: +255 796233870</p>
+<p>📧Email: <a href="mailto:farajamgaya80297@gmail.com">farajamgaya80297@gmail.com</a></p>
+<p>📍 Location Mbeya, Tanzania</p>
+</div>
+</section>
+
+<!--FOOTER-->
+<footer>
+<p>&copy; 2026 mashuka store | Designed by kasiani Tech solutions(+255 617 149 876)</p>
+
+<div class="brand-box">
+<img src="c:\Users\KASIAN\Pictures\kasian logo.png.png" alt="logo">
+<span>Kasiani Tech</span>
+</div>
+</footer>
+
+<script>
+
+let cart = 0;
+
+function addCart(){
+cart++;
+document.getElementById("cart-count").innerText = cart;
+alert("Product added to cart 🛒");
+}
+
+function darkMode(){
+document.body.classList.toggle("dark");
+}
+
+function searchProduct(){
+let input = document.getElementById("search").value.toLowerCase();
+let cards = document.querySelectorAll(".card");
+
+cards.forEach(card=>{
+if(card.innerText.toLowerCase().includes(input)){
+card.style.display="block";
+}else{
+card.style.display="none";
+}
+});
+}
+
+</script>
+
+</body>
+</html>
